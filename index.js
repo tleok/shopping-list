@@ -3,7 +3,7 @@ function addNewItem() {
         event.preventDefault();
         $('#shopping-list-entry').empty();
         const newListItem = $(event.currentTarget).find('#shopping-list-entry');
-        $(".js-display-user-text").text(`user text is:  ${newListItem.val()}`);/*adding this to display the text, I need to figure out how to add this to the UL items rather than displaying on the screen */
+        $(".shopping-list").append(`<li> ${newListItem.val()} </li>`);/*adding this to display the text, I need to figure out how to add this to the UL items rather than displaying on the screen */
     })
 }
 
@@ -23,3 +23,12 @@ $(function() {
   });
 });
 */
+/*
+function addNewItem() {
+  $('#js-shopping-list-form').submit(function(event){
+      event.preventDefault();
+      $('#shopping-list-entry').empty();
+      const newListItem = $(event.currentTarget).find('#shopping-list-entry');
+      $(".js-display-user-text").text(`user text is:  ${newListItem.val()}`);*//*adding this to display the text, I need to figure out how to add this to the UL items rather than displaying on the screen */
+  //})
+//}
