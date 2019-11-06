@@ -45,10 +45,12 @@ $(itemChecked)
 //Delete Item when Delete button Selected
 function removeItem() {
   $('ul').on('click', '.shopping-item-delete', function(event){
-    const deleteItem = $(event.currentTarget).parent().parent();
-      $(deleteItem).remove();
+    $(this).parent().parent().remove();
   });
 };
 
 //invoke the Function on Ready
 $(removeItem)
+
+//const deleteItem = $(event.currentTarget).parent().parent();
+//$(deleteItem).remove();
