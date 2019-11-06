@@ -33,3 +33,15 @@ function itemChecked() {
 }
 //invoke the Function on Ready
 $(itemChecked)
+
+//Delete Item when Delete button Selected
+function removeItem() {
+  $('.shopping-item-delete').on('click', function(event){
+    const deleteItem = $(event.currentTarget).parent().parent();
+        $('ul').on('click', 'li', function(event) {
+        this.remove();
+        });
+  })
+}
+//invoke the Function on Ready
+$(removeItem)
