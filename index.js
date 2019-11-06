@@ -1,47 +1,54 @@
 //Add a new item when the user inputs somthing in the input field and submits
 function addNewItem() {
-    $('#js-shopping-list-form').submit(function(event){
-        event.preventDefault();
-        $('#shopping-list-entry').empty();
-        
-        //$('ul').on('click', 'li', function(event) {
-          //this.remove();
-        
-          const newListItem = $(event.currentTarget).find('#shopping-list-entry');
-        $(".shopping-list").append(`<li><span class="shopping-item"> ${newListItem.val()}</span>
-          <div class="shopping-item-contols"><button class="shopping-item-toggle">
-          <span class="button-label">check</span>
-          </button>
-          <button class="shopping-item-delete">
-          <span class="button-label">delete</span>
-          </button></div> </li>`);
-    })
-}
+  $('#js-shopping-list-form').submit(function(event){
+    event.preventDefault();
+    const newListItem = $('#shopping-list-entry').val();
+    $(".shopping-list").append(getNewItemHtml(newListItem));
+    $('#shopping-list-entry').val("");
+  });
+};
+
 //invoke the Function on Ready
 $(addNewItem)
 
+/**
+ * @description returns a string containing a new 
+ * list item with itemName as the item parameter.
+ * @param {String} itemName 
+ */
+function getNewItemHtml(itemName){
+ return `
+  <li>
+    <span class="shopping-item">${itemName}</span>
+    <div class="shopping-item-contols">
+      <button class="shopping-item-toggle">
+        <span class="button-label">check</span>
+      </button>
+      <button class="shopping-item-delete">
+        <span class="button-label">delete</span>
+      </button>
+    </div> 
+  </li>`;
+};
 
 //Toggle the Stike through when checked and unchecked
 function itemChecked() {
-  $('.shopping-item-toggle').on('click', function(event){
-    const checkedItem = $(event.currentTarget).parent().parent();
-    checkedItem.toggleClass('shopping-item__checked')
-  })
-    //$('ul').on('click', 'li', function(event) {
-      //this.remove();
-    //});
-}
+  $('ul').on('click', '.shopping-item-toggle', function(event){
+    const checkedItem = $(event.currentTarget).parent().parent().children()[0];
+    $(checkedItem).toggleClass('shopping-item__checked')
+  });
+};
+
 //invoke the Function on Ready
 $(itemChecked)
 
 //Delete Item when Delete button Selected
 function removeItem() {
-  $('.shopping-item-delete').on('click', function(event){
+  $('ul').on('click', '.shopping-item-delete', function(event){
     const deleteItem = $(event.currentTarget).parent().parent();
-        $('ul').on('click', 'li', function(event) {
-        this.remove();
-        });
-  })
-}
+      $(deleteItem).remove();
+  });
+};
+
 //invoke the Function on Ready
 $(removeItem)
