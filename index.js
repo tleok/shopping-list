@@ -14,6 +14,7 @@ $(addNewItem)
 /**
  * @description returns a string containing a new 
  * list item with itemName as the item parameter.
+ * Trying out a new way of commenting.
  * @param {String} itemName 
  */
 function getNewItemHtml(itemName){
