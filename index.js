@@ -52,5 +52,3 @@ function removeItem() {
 //invoke the Function on Ready
 $(removeItem)
 
-//const deleteItem = $(event.currentTarget).parent().parent();
-//$(deleteItem).remove();
