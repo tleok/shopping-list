@@ -14,44 +14,22 @@ function addNewItem() {
           </button>
           <button class="shopping-item-delete">
           <span class="button-label">delete</span>
-          </button></div> </li>`);/*adding this to display the text, I need to figure out how to add this to the UL items rather than displaying on the screen */
+          </button></div> </li>`);
     })
 }
 //invoke the Function on Ready
 $(addNewItem)
 
 
+//Toggle the Stike through when checked and unchecked
 function itemChecked() {
   $('.shopping-item-toggle').on('click', function(event){
-    const checkedItem = $(event.currentTarget);
-    checkedItem.addClass('shopping-item__checked');
+    const checkedItem = $(event.currentTarget).parent().parent();
+    checkedItem.toggleClass('shopping-item__checked')
   })
     //$('ul').on('click', 'li', function(event) {
       //this.remove();
     //});
 }
+//invoke the Function on Ready
 $(itemChecked)
-/*  Toggle the checkbox
-$('#choose_address2').click(function(){
-   $('.toggle').each(function(){
-     $(this).prop('checked', !$(this)[0].checked);
-  })
-}) */
-
-
-
-/*
-$(function() {
-  
-  $("button").click(function(event) {
-    $("ul").append(
-      "<li>" +
-      ["cat", "dog", "rock"][Math.floor(Math.random()*3)] + "</li>"
-    );
-  });
-  
-  $('ul').on('click', 'li', function(event) {
-    this.remove();
-  });
-});
-*/
